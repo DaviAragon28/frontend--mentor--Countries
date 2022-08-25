@@ -29,4 +29,8 @@ export class CountriesService {
   getOne(name: string){
     return this.http.get<Country[]>(`${this.apiUrl}/name/${name}`)
   }
+
+  getByRegion(region: string) {
+    return this.http.get<Country[]>(`${this.apiUrl}/region/${region}`)
+  }
 }

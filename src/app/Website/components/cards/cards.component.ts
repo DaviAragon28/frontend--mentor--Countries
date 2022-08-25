@@ -11,6 +11,8 @@ export class CardsComponent implements OnInit {
 
   countries: Country[] = []
   backUpCountries: Country[] = []
+  opcionSelecionada: string = 'all'
+  verSeleccion: string = ''
 
   constructor(
     private countriesService: CountriesService
@@ -43,5 +45,20 @@ export class CardsComponent implements OnInit {
 
   toTop() {
     window.scrollTo(0, 0)
+  }
+
+  getByRegion(region: string) {
+    if (region === 'all') {
+      this.countriesService.getAll()
+      .subscribe(data => {
+        this.countries = data
+      })
+    } else {
+      this.countriesService.getByRegion(region)
+      .subscribe(data => {
+
+        this.countries = data
+      })
+    }
   }
 }

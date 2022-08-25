@@ -6,6 +6,8 @@
   .container--input {
     text-align: center;
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
     input {
       width: 300px;
       padding: 10px 20px;
@@ -20,7 +22,20 @@
 
     }
   }
+  .container--select {
+    text-align: left;
+    margin-left: 20px;
+    select {
+      cursor: pointer;
+      padding: 10px 20px;
+      background-color: hsl(209, 23%, 22%);
+      border: none;
+      box-shadow: 1px 2px 8px #00000059;
+      border-radius: 10px;
+      color: white;
 
+    }
+  }
   .noResults {
     display: grid;
     place-content: center;
@@ -80,3 +95,12 @@
 
 }
 
+
+@media (max-width: 768px) {
+  .container--input {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+}

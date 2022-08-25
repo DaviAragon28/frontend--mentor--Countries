@@ -4,7 +4,19 @@
     placeholder="Search a country"
     (keyup)="onFilteredCountry(searching.value)
     ">
+
+
+  <div class="container--select">
+    <select   [(ngModel)]="opcionSelecionada"  name="region" id="region" (change)="getByRegion(opcionSelecionada)">
+      <option  value="all">All</option>
+      <option  value="Africa">Africa</option>
+      <option  value="America">America</option>
+      <option  value="Asia">Asia</option>
+      <option  value="Europe">Europe</option>
+      <option  value="Oceania">Oceania</option>
+    </select>
   </div>
+</div>
 
 
   <div class="noResults" *ngIf="countries.length === 0">
