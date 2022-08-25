@@ -1,0 +1,41 @@
+<div *ngIf="country">
+  <button (click)="onBack()">Back</button>
+  <div  class="container--details" *ngFor="let con of country">
+
+    <div class="container--flag">
+      <img src="{{con.flags.png}}" alt="flag">
+    </div>
+
+    <div class="container--info">
+      <div>
+      <div class="container__info--name">
+        <h2>{{con.name.common}}</h2>
+      </div>
+
+      <div class="container__info--population">
+        <p>Native Name: <span>{{con.name.official}}</span></p>
+        <p>Population: <span>{{con.population}}</span></p>
+        <p>Region: <span>{{con.region}}</span></p>
+        <p>Sub Region: <span>{{con.subregion}}</span></p>
+        <p>Capital: <span>{{con.capital}}</span></p>
+      </div>
+    </div>
+    <div>
+
+      <div class="container__info--currencies">
+        <p>Top Level Domain: <span>{{con.tld}}</span></p>
+        <p>Currencies: <span>{{con.currencies}}</span></p>
+        <p>Languages: <span>{{con.languages}}</span></p>
+      </div>
+
+      <div class="container__info--borders">
+        <p>Border Countries:</p>
+        <ul>
+          <li *ngFor="let borders of con.borders">{{borders}}</li>
+        </ul>
+      </div>
+    </div>
+    </div>
+
+  </div>
+</div>

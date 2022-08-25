@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="container--input">
+    <input #searching type="text"
+    placeholder="Search a country"
+    (keyup)="onFilteredCountry(searching.value)
+    ">
+  </div>
+
+
+  <div class="noResults" *ngIf="countries.length === 0">
+    <p>NO RESULTS!</p>
+  </div>
+
+  <div class="grid--cards">
+    <div class="container-card" *ngFor="let country of countries">
+      <a [routerLink]="['/details/country', country.name.common]">
+        <img src="{{country.flags.svg}}" alt="">
+      </a>
+      <div class="container--info">
+        <div>
+          <h2>{{country.name.common}}</h2>
+        </div>
+        <div>
+          <p>Population: <span>{{country.population}}</span></p>
+          <p>Region: <span>{{country.region}}</span></p>
+          <p>Capital: <span>{{country.capital}}</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="toTop" (click)="toTop()">Up</button>
+</div>
